@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">fileManager</string>
+    <string name="classify_text">分类</string>
+    <string name="phone">手机</string>
+    <string name="music">音乐</string>
+    <string name="video">视频</string>
+    <string name="image">图片</string>
 </resources>

@@ -1,6 +1,6 @@
 package com.edgar.filemanager;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FileBaseActivity extends AppCompatActivity {
 }
