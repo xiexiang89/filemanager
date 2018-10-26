@@ -1,14 +1,16 @@
 package com.edgar.filemanager;
 
+import android.Manifest;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 
-import com.edgar.filemanager.classify.ClassifyFragment;
 import com.edgar.filemanager.file.FileListFragment;
 import com.edgar.filemanager.music.MusicListFragment;
+import com.edgar.filemanager.permission.PermissionCallback;
+import com.edgar.filemanager.permission.PermissionRequest;
 import com.google.android.material.tabs.TabLayout;
 
 import java.lang.ref.WeakReference;
@@ -26,6 +28,10 @@ import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends FileBaseActivity {
 
+    private static final String[] PERMISSIONS = {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+    };
+
     private DrawerLayout mDrawerLayout;
     private Toolbar mToolBar;
     private TabLayout mTabLayout;
@@ -36,6 +42,20 @@ public class MainActivity extends FileBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        PermissionRequest.build(this).request(0, PERMISSIONS, new PermissionCallback(){
+            @Override
+            public void onPermissionResult(String[] permissions, String[] deniedPermissions, int deniedPermissionCount) {
+                super.onPermissionResult(permissions, deniedPermissions, deniedPermissionCount);
+                if (deniedPermissionCount > 0) {
+                    finish();
+                    return;
+                }
+                setupView();
+            }
+        });
+    }
+
+    private void setupView() {
         setupToolBar();
         setupViewPager();
         setupTabLayout();

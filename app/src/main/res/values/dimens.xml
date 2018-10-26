@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_padding_horizontal">20dp</dimen>
+    <dimen name="item_padding_vertical">10dp</dimen>
+    <dimen name="file_icon_size">40dp</dimen>
+    <dimen name="list_divider_height">1dp</dimen>
+    <dimen name="text_size_15">15dp</dimen>
+    <dimen name="text_size_13">13dp</dimen>
+    <dimen name="file_item_padding_top">5dp</dimen>
+</resources>
