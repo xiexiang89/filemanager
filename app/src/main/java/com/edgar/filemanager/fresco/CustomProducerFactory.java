@@ -16,7 +16,6 @@ import com.facebook.imagepipeline.core.ProducerFactory;
 import com.facebook.imagepipeline.decoder.ImageDecoder;
 import com.facebook.imagepipeline.decoder.ProgressiveJpegConfig;
 import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.producers.LocalContentUriFetchProducer;
 
 /**
  * Created by Edgar on 2018/10/27.
@@ -35,7 +34,7 @@ public class CustomProducerFactory extends ProducerFactory {
     }
 
     @Override
-    public LocalContentUriFetchProducer newLocalContentUriFetchProducer() {
-        return new CustomLocalContentUriFetchProducer(mExecutorSupplier.forLocalStorageRead(), mPooledByteBufferFactory, mContentResolver);
+    public com.facebook.imagepipeline.producers.LocalContentUriFetchProducer newLocalContentUriFetchProducer() {
+        return new LocalContentUriFetchProducer(mExecutorSupplier.forLocalStorageRead(), mPooledByteBufferFactory, mContentResolver);
     }
 }

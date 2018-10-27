@@ -8,7 +8,6 @@ import android.provider.MediaStore;
 import com.edgar.filemanager.utils.UriUtils;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
-import com.facebook.imagepipeline.producers.LocalContentUriFetchProducer;
 import com.facebook.imagepipeline.request.ImageRequest;
 
 import java.io.File;
@@ -19,11 +18,11 @@ import java.util.concurrent.Executor;
 /**
  * Created by Edgar on 2018/10/27.
  */
-public class CustomLocalContentUriFetchProducer extends LocalContentUriFetchProducer {
+public class LocalContentUriFetchProducer extends com.facebook.imagepipeline.producers.LocalContentUriFetchProducer {
 
     private final ContentResolver mContentResolver;
 
-    public CustomLocalContentUriFetchProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, ContentResolver contentResolver) {
+    public LocalContentUriFetchProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, ContentResolver contentResolver) {
         super(executor, pooledByteBufferFactory, contentResolver);
         mContentResolver = contentResolver;
     }
