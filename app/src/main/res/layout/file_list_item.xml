@@ -9,16 +9,12 @@
     android:paddingTop="@dimen/item_padding_vertical"
     android:paddingBottom="@dimen/item_padding_vertical"
     android:gravity="center_vertical">
-    <FrameLayout
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/file_img"
         android:layout_width="@dimen/file_icon_size"
         android:layout_height="@dimen/file_icon_size"
-        android:background="@drawable/music_file_bg">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_music_white"
-            android:layout_gravity="center"/>
-    </FrameLayout>
+        app:placeholderImage="@drawable/ic_music_placeholder"
+        app:failureImage="@drawable/ic_music_placeholder" />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

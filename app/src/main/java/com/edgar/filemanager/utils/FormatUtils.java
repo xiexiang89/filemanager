@@ -23,7 +23,7 @@ public class FormatUtils {
     public static final int FLAG_DEFAULT = 0;
     public static final int FLAG_SHORTER = 1 << 0;
     public static final int FLAG_CALCULATE_ROUNDED = 1 << 1;
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     public static String formatTime(long date) {
         return DATE_FORMAT.format(date);

@@ -40,6 +40,7 @@ public class MediaCursorAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
+        ViewUtils.setImageUrl(view, R.id.file_img, MediaUtils.getAlbumImageUri(cursor));
         ViewUtils.setText(view, R.id.file_name, MediaUtils.getDisplayName(cursor));
         ViewUtils.setText(view, R.id.file_size, FormatUtils.formatFileSize(view.getContext(),MediaUtils.getSize(cursor)));
         ViewUtils.setText(view, R.id.file_modify_time, FormatUtils.formatTime(MediaUtils.getLastModified(cursor)));

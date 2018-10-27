@@ -30,6 +30,7 @@ public class FileListBaseFragment extends ListFragment implements SwipeRefreshLa
         mRefreshLayout = new SwipeRefreshLayout(getContext());
         mRefreshLayout.setId(R.id.refresh);
         mRefreshLayout.addView(childView);
+        mRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
         mRefreshLayout.setOnRefreshListener(this);
         return mRefreshLayout;
     }

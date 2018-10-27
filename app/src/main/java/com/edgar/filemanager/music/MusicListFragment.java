@@ -19,7 +19,6 @@ public class MusicListFragment extends RefreshListFragment implements LoaderMana
     private static final int LOADER_ID = 1;
 
     private LoaderManager mLoaderManager;
-    private CursorLoader mCursorLoader;
     private MusicListAdapter mMusicListAdapter;
 
     @Override
@@ -49,8 +48,7 @@ public class MusicListFragment extends RefreshListFragment implements LoaderMana
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-    }
+    public void onLoaderReset(Loader<Cursor> loader) { }
 
     @Override
     public void onRefresh() {

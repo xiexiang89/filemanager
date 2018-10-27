@@ -1,6 +1,7 @@
 package com.edgar.filemanager.utils;
 
 import android.database.Cursor;
+import android.net.Uri;
 import android.provider.MediaStore;
 
 /**
@@ -20,5 +21,10 @@ public class MediaUtils {
 
     public static long getSize(Cursor cursor) {
         return cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.SIZE));
+    }
+
+    public static Uri getAlbumImageUri(Cursor cursor) {
+        final int albumId = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID));
+        return Uri.parse(MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI + "/" + albumId);
     }
 }
