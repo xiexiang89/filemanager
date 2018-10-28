@@ -2,7 +2,7 @@ package com.edgar.filemanager;
 
 import android.app.Application;
 
-import com.edgar.filemanager.utils.FrescoInit;
+import com.edgar.filemanager.fresco.FrescoInit;
 
 /**
  * Created by Edgar on 2018/10/27.

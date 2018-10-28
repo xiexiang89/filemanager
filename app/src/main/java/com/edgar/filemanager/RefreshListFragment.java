@@ -1,10 +1,12 @@
 package com.edgar.filemanager;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
 
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by Edgar on 2018/10/26.
@@ -20,8 +22,10 @@ public class RefreshListFragment extends FileListBaseFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        final ListView listView = getListView();
-        listView.setDivider(ContextCompat.getDrawable(getContext(),R.drawable.list_inset_divider));
-        listView.setDividerHeight(getResources().getDimensionPixelOffset(R.dimen.list_divider_height));
+        final Context context = getContext();
+        final RecyclerView recyclerView = getRecyclerView();
+        final DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context,DividerItemDecoration.VERTICAL);
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(context,R.drawable.list_inset_divider));
+        recyclerView.addItemDecoration(dividerItemDecoration);
     }
 }

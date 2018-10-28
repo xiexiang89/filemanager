@@ -19,7 +19,7 @@ public class MusicListFragment extends RefreshListFragment implements LoaderMana
     private static final int LOADER_ID = 1;
 
     private LoaderManager mLoaderManager;
-    private MusicListAdapter mMusicListAdapter;
+    private MusicFileListAdapter mMusicListAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,8 @@ public class MusicListFragment extends RefreshListFragment implements LoaderMana
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mMusicListAdapter = new MusicListAdapter(getContext(),null);
-        setListAdapter(mMusicListAdapter);
+        mMusicListAdapter = new MusicFileListAdapter(getContext());
+        setAdapter(mMusicListAdapter);
         mLoaderManager.initLoader(LOADER_ID,null,this);
     }
 
@@ -44,7 +44,7 @@ public class MusicListFragment extends RefreshListFragment implements LoaderMana
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         getRefreshLayout().setRefreshing(false);
-        mMusicListAdapter.swapCursor(data);
+        mMusicListAdapter.changeCursor(data);
     }
 
     @Override

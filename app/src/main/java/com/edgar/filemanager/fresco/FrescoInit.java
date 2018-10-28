@@ -1,8 +1,7 @@
-package com.edgar.filemanager.utils;
+package com.edgar.filemanager.fresco;
 
 import android.content.Context;
 
-import com.edgar.filemanager.fresco.CustomProducerFactory;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.memory.ByteArrayPool;
 import com.facebook.common.memory.PooledByteBuffer;
@@ -52,6 +51,6 @@ public class FrescoInit {
                         maxBitmapSize);
             }
         });
-        Fresco.initialize(context,configBuilder.build());
+        Fresco.initialize(context, configBuilder.build());
     }
 }

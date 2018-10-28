@@ -23,7 +23,7 @@ public class MediaUtils {
         return cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.SIZE));
     }
 
-    public static Uri getAlbumImageUri(Cursor cursor) {
+    public static Uri getAudioAlbumImageUri(Cursor cursor) {
         final int albumId = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID));
         return Uri.parse(MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI + "/" + albumId);
     }

@@ -5,14 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.LayoutRes;
-import androidx.fragment.app.ListFragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 /**
  * Created by Edgar on 2018/10/26.
  */
-public class FileListBaseFragment extends ListFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class FileListBaseFragment extends RecyclerViewFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private boolean mEnableRefresh = true;
     private SwipeRefreshLayout mRefreshLayout;

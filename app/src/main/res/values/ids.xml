@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="refresh" type="id"/>
+    <item name="list_container" type="id"/>
+    <item name="progress_view" type="id"/>
+    <item name="progress_loading" type="id"/>
+    <item name="empty_text" type="id"/>
+    <item name="empty" type="id"/>
 </resources>
