@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.edgar.filemanager.MediaCursorAdapter;
 import com.edgar.filemanager.utils.MediaUtils;
@@ -32,6 +31,6 @@ public class VideoListAdapter extends MediaCursorAdapter {
     @Override
     protected void onMediaItemClick(Cursor cursor, int position) {
         super.onMediaItemClick(cursor, position);
-        Toast.makeText(mContext, MediaUtils.getTitle(cursor),Toast.LENGTH_SHORT).show();
+        MediaUtils.playVideo(mContext, MediaUtils.getPath(cursor));
     }
 }

@@ -1,9 +1,17 @@
 package com.edgar.filemanager.utils;
 
 import android.content.ContentUris;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
+import android.os.StrictMode;
 import android.provider.MediaStore;
+
+import com.edgar.filemanager.model.MediaFile;
+
+import java.io.File;
 
 /**
  * Created by Edgar on 2018/10/26.
@@ -11,6 +19,10 @@ import android.provider.MediaStore;
 public class MediaUtils {
 
     private MediaUtils() {}
+
+    public static String getPath(Cursor cursor) {
+        return cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA));
+    }
 
     public static String getTitle(Cursor cursor) {
         return cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.TITLE));
@@ -31,6 +43,14 @@ public class MediaUtils {
     public static Uri getAudioAlbumImageUri(Cursor cursor) {
         final int albumId = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID));
         return ContentUris.withAppendedId(MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI, albumId);
+    }
+
+    public static long getVideoDuration(Cursor cursor) {
+        return getMediaDuration(cursor, MediaStore.Video.VideoColumns.DURATION);
+    }
+
+    public static long getMediaDuration(Cursor cursor, String columnName) {
+        return cursor.getLong(cursor.getColumnIndexOrThrow(columnName));
     }
 
 //    public static Uri getVideoThumb(Cursor cursor) {
@@ -60,5 +80,28 @@ public class MediaUtils {
 //        long thumbId = c.getLong(0);
 //        return ContentUris.withAppendedId(baseUri, thumbId);
 //    }
+
+    public static void playAudio(Context context, String fileName) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(UriUtils.fromFile(fileName),"audio/*");
+        startSystemActivity(context, intent);
+    }
+
+    public static void playVideo(Context context, String fileName) {
+        startSystemActivity(context, new Intent(Intent.ACTION_VIEW).setDataAndType(UriUtils.fromFile(fileName),"video/*"));
+    }
+
+    private static void startSystemActivity(Context context, Intent intent) {
+        StrictMode.VmPolicy vmPolicy = null;
+        if (Build.VERSION.SDK_INT >= 24) {
+            vmPolicy = StrictMode.getVmPolicy();
+            StrictMode.VmPolicy tempVmPolicy = (new android.os.StrictMode.VmPolicy.Builder()).penaltyLog().build();
+            StrictMode.setVmPolicy(tempVmPolicy);
+        }
+        context.startActivity(intent);
+        if (vmPolicy != null) {
+            StrictMode.setVmPolicy(vmPolicy);
+        }
+    }
 
 }

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.edgar.filemanager.R;
 import com.edgar.filemanager.utils.FormatUtils;
 import com.edgar.filemanager.utils.MediaUtils;
+import com.edgar.filemanager.utils.TimeUtils;
 import com.edgar.filemanager.widget.MediaCursorItemViewHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -20,12 +21,14 @@ public class VideoViewHolder extends MediaCursorItemViewHolder {
     private SimpleDraweeView mVideoImgView;
     private TextView mFileSizeView;
     private TextView mVideoNameView;
+    private TextView mVideoDurationView;
 
     public VideoViewHolder(LayoutInflater inflater, ViewGroup parent) {
         super(inflater, parent, R.layout.video_list_item);
         mVideoImgView = itemView.findViewById(R.id.video_img);
         mFileSizeView = itemView.findViewById(R.id.file_size);
         mVideoNameView = itemView.findViewById(R.id.video_name);
+        mVideoDurationView = itemView.findViewById(R.id.video_duration);
     }
 
     @Override
@@ -34,5 +37,6 @@ public class VideoViewHolder extends MediaCursorItemViewHolder {
         mVideoImgView.setImageURI(mMediaImageUri);
         mFileSizeView.setText(FormatUtils.formatFileSize(mFileSizeView.getContext(), MediaUtils.getSize(cursor)));
         mVideoNameView.setText(MediaUtils.getTitle(cursor));
+        mVideoDurationView.setText(TimeUtils.formatMilliSecond(MediaUtils.getVideoDuration(cursor)));
     }
 }

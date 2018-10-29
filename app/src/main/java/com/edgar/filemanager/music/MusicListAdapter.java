@@ -23,4 +23,10 @@ public class MusicListAdapter extends MediaCursorAdapter {
     protected Uri getMediaImageUri(Cursor cursor) {
         return MediaUtils.getAudioAlbumImageUri(cursor);
     }
+
+    @Override
+    protected void onMediaItemClick(Cursor cursor, int position) {
+        super.onMediaItemClick(cursor, position);
+        MediaUtils.playAudio(mContext, MediaUtils.getPath(cursor));
+    }
 }
