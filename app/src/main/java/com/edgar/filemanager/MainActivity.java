@@ -11,6 +11,7 @@ import com.edgar.filemanager.file.FileListFragment;
 import com.edgar.filemanager.music.MusicListFragment;
 import com.edgar.filemanager.permission.PermissionCallback;
 import com.edgar.filemanager.permission.PermissionRequest;
+import com.edgar.filemanager.video.VideoListFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.lang.ref.WeakReference;
@@ -92,6 +93,7 @@ public class MainActivity extends FileBaseActivity {
     private void setupViewPager() {
         mViewPager = findViewById(R.id.view_pager);
         mTabPagerAdapter = new TabPagerAdapter(this, getSupportFragmentManager());
+        mViewPager.setOffscreenPageLimit(mTabPagerAdapter.getCount()-1);
         mViewPager.setAdapter(mTabPagerAdapter);
     }
 
@@ -106,7 +108,7 @@ public class MainActivity extends FileBaseActivity {
             mTabs = new ArrayList<>();
             mTabs.add(new String[]{context.getString(R.string.phone), FileListFragment.class.getCanonicalName()});
             mTabs.add(new String[]{context.getString(R.string.music), MusicListFragment.class.getCanonicalName()});
-            mTabs.add(new String[]{context.getString(R.string.video), FileListFragment.class.getCanonicalName()});
+            mTabs.add(new String[]{context.getString(R.string.video), VideoListFragment.class.getCanonicalName()});
             mTabs.add(new String[]{context.getString(R.string.image), FileListFragment.class.getCanonicalName()});
         }
 

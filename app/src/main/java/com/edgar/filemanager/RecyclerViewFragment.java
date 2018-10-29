@@ -310,9 +310,13 @@ public class RecyclerViewFragment extends Fragment {
 
     private RecyclerView.LayoutManager obtainLayoutManager() {
         if (mLayoutManager == null) {
-            mLayoutManager = new LinearLayoutManager(getContext());
+            mLayoutManager = onCreateLayoutManager();
         }
         return mLayoutManager;
+    }
+
+    protected RecyclerView.LayoutManager onCreateLayoutManager() {
+        return new LinearLayoutManager(getContext());
     }
 
     public void setLayoutManager(RecyclerView.LayoutManager layoutManager) {

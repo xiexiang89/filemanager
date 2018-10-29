@@ -8,7 +8,8 @@
     android:paddingRight="@dimen/item_padding_horizontal"
     android:paddingTop="@dimen/item_padding_vertical"
     android:paddingBottom="@dimen/item_padding_vertical"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:background="?android:attr/selectableItemBackground">
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/file_img"
         android:layout_width="@dimen/file_icon_size"

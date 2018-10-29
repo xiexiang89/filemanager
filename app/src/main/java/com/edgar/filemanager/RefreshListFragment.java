@@ -6,6 +6,8 @@ import android.view.View;
 
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -24,8 +26,11 @@ public class RefreshListFragment extends FileListBaseFragment {
         super.onViewCreated(view, savedInstanceState);
         final Context context = getContext();
         final RecyclerView recyclerView = getRecyclerView();
-        final DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context,DividerItemDecoration.VERTICAL);
-        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(context,R.drawable.list_inset_divider));
-        recyclerView.addItemDecoration(dividerItemDecoration);
+        if (!(recyclerView.getLayoutManager() instanceof GridLayoutManager)) {
+            LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+            final DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, linearLayoutManager.getOrientation());
+            dividerItemDecoration.setDrawable(ContextCompat.getDrawable(context,R.drawable.list_inset_divider));
+            recyclerView.addItemDecoration(dividerItemDecoration);
+        }
     }
 }

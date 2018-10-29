@@ -1,6 +1,7 @@
 package com.edgar.filemanager;
 
 import android.app.Application;
+import android.content.ContentResolver;
 
 import com.edgar.filemanager.fresco.FrescoInit;
 
@@ -13,6 +14,10 @@ public class FileManagerApplication extends Application {
 
     public static FileManagerApplication get() {
         return sApplication;
+    }
+
+    public static ContentResolver contentResolver() {
+        return sApplication.getContentResolver();
     }
 
     @Override

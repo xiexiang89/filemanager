@@ -3,12 +3,10 @@ package com.edgar.filemanager.widget;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.edgar.filemanager.R;
 import com.edgar.filemanager.utils.FormatUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import androidx.annotation.DrawableRes;

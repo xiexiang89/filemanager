@@ -17,7 +17,7 @@
     </style>
 
     <style name="CustomToolBarNavigation" parent="Widget.AppCompat.Toolbar.Button.Navigation">
-        <item name="android:background">@drawable/navi_background</item>
+        <item name="android:background">@drawable/common_background</item>
     </style>
 
     <style name="TabTextStyle">
